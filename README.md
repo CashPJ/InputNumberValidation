@@ -6,7 +6,7 @@ Validation of InputNumber and model data annotation doesn't work as expected.
 Nothing to exmlain jet.
 ## Step 2 - Focus out from InputText
 Generic error message is shown, but it should be error message defined by RequredAttribute.
-## Click on "+" or "-" button
+## Step 3 - Click on "+" or "-" button
 InputNumber is still marked with error, but it should't because now it has value.
 (EditContextRef.GetValidationMessages() still holds the same error)
 # Example which works fine
