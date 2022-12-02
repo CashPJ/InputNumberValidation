@@ -7,8 +7,8 @@ Initial page state
 
 ![step1](https://user-images.githubusercontent.com/80749332/205308614-9f26a2e1-cabd-43e7-8d7b-ba8154e12173.png)
 
-## Step 2 - Clear endered data from InputText and out from InputText
-Generic error message is shown, but it should be error message defined by RequredAttribute.
+## Step 2 - Clear entered data from InputText and focus out from InputText
+Generic error message is shown, but, it should be error message defined by RequredAttribute. Right?
 
 ![step2](https://user-images.githubusercontent.com/80749332/205308663-474cb470-bc10-423a-b4e8-b7002654f7d9.png)
 
