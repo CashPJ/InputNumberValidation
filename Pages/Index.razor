@@ -1,0 +1,87 @@
+﻿@page "/index"
+@using System.ComponentModel.DataAnnotations
+
+<h3>Counter</h3>
+
+<EditForm EditContext="EditContextRef">
+    <DataAnnotationsValidator />
+
+    <div>Reproduce:</div>
+    <ul>
+        <li>Clear value from InputNumber</li>
+        <li>Focus out from InputNumber -> it should show RequiredAttribute error message but, it shows generic error. </li>
+        <li>Click on + or - button -> InputNumber stays marked with error (EditContextRef.GetValidationMessages() still holds same error) while it should be cleared</li>
+    </ul>
+
+    <h2>int DOES NOT work as expected</h2>
+    <p>
+        <button class="btn btn-primary" @onclick="Model.DecrementCount"> - </button>
+        <InputNumber @bind-Value="Model.CurrentCount" />
+        <button class="btn btn-primary" @onclick="Model.IncrementCount"> + </button><br />
+        <ValidationMessage For="()=>Model.CurrentCount" />
+    </p>
+
+    <hr style="margin-top:150px;"/>
+    <h2 >int? works as expected</h2>
+    <p>
+        <button class="btn btn-primary" @onclick="Model.DecrementNullableCount"> - </button>
+        <InputNumber @bind-Value="Model.CurrentCountNullable" />
+        <button class="btn btn-primary" @onclick="Model.IncrementNullableCount"> + </button><br />
+        <ValidationMessage For="()=>Model.CurrentCountNullable" />
+    </p>
+
+    
+    
+</EditForm>
+
+@code {
+    protected EditContext EditContextRef { get; set; } = null!;
+
+    
+
+    protected CounterModel Model { get; set; } = null!;
+
+    protected override void OnInitialized()
+    {
+        Model = new CounterModel();
+        EditContextRef = new EditContext(Model);
+        
+        base.OnInitialized();
+    }
+
+    public class CounterModel
+    {
+        [Required(ErrorMessage = "Required field")]
+        [Range(-3, 3, ErrorMessage = "Out of range")]
+        public int CurrentCount { get; set; }
+
+        public void DecrementCount()
+            => CurrentCount--;
+
+        public void IncrementCount()
+            => CurrentCount++;
+
+
+
+
+        [Required(ErrorMessage = "Required field")]
+        [Range(-3, 3, ErrorMessage = "Out of range")]
+        public int? CurrentCountNullable { get; set; } = 0;
+
+        public void IncrementNullableCount()
+        {
+            if (CurrentCountNullable == null)
+                CurrentCountNullable = 0;
+
+            CurrentCountNullable++;
+        }
+
+        public void DecrementNullableCount()
+        {
+            if (CurrentCountNullable == null)
+                CurrentCountNullable = 0;
+
+            CurrentCountNullable --;            
+        }
+    }
+}

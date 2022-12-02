@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <Compile Remove="ViewModels\**" />
+    <Content Remove="Models\**" />
+    <Content Remove="ViewModels\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <None Remove="Models\**" />
+    <None Remove="ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Index2.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.DataAnnotations.Validation" Version="3.2.0-rc1.20223.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.11" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>
