@@ -3,7 +3,7 @@ Validation of InputNumber and model data annotation doesn't work as expected.
 
 # Reproduce bug by steps and explanation
 ## Step 1 - Open page
-Nothing to exmlain jet.
+Initial page state
 
 ![step1](https://user-images.githubusercontent.com/80749332/205308614-9f26a2e1-cabd-43e7-8d7b-ba8154e12173.png)
 
